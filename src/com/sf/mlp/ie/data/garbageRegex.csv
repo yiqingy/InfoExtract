@@ -1,0 +1,17 @@
+^: 
+\d(\d)?\/\d\d(\/\d\d\d\d)?
+\d{4,}
+(\s)(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)(\s)?\d\d((\s)?\d\d:\d\d(A|P)?)?
+AT \d\d(:|.)\d\d
+\d\d AT
+\$(\s*)?\d{1,4}(\.\d\d)?(PUR|CASH)?(\/)?
+#[\d]{1,6}
+\s(STR|ST|-)[\s]?[\d]{2,5}
+STORE[\s]?[\d]{3,5}
+\s{4,}
+[\d-/\._\*:]{6,}
+X{4,}
+\*{2,}
+ONLINE PAYMENT [\d]{4,} TO
+\(?\d\d\d\)?[\s-]?\d\d\d[\s-]?\d\d\d\d
+\s\d\d\s\d\d\s
