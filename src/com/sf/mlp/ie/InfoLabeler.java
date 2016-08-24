@@ -7,6 +7,8 @@ import com.sf.mlp.ie.ds.Range;
 /**
  * Created by Joms on 4/16/2016.
  * Labels name, city and state.
+ * Modified by Yiqing on 8/24/2016.
+ * Check non-garbage string by parts to remain merchant name.
  */
 public class InfoLabeler {
 
