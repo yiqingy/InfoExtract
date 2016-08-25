@@ -84,9 +84,9 @@ public class CsvTest {
     public void readCsvInput() throws IOException{
         InformationExtraction ie;
         DupBankTxClassifier dup;
-        File output = new File("ieUnresolved_0824.txt");
+        File output = new File("validation_ie_new_0825.txt");
         FileWriter outputFile = new FileWriter(output);
-        FileWriter caughtByRuleOutputFile = new FileWriter(new File("unresolved_tx_aug_24_ie.txt"));
+        FileWriter caughtByRuleOutputFile = new FileWriter(new File("caughtByRule_0825.txt"));
         int nullCount = 0;
         int lineNo = 0;
         int caughtByRuleNo = 0;
@@ -94,7 +94,7 @@ public class CsvTest {
         try(BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             if (headerPresent) {
                 outputFile.write(br.readLine());
-                outputFile.write("\tie_resolved_name\tie_resolved_city\tie_resolved_state\n");
+                outputFile.write("\tnew_ie_resolved_name\tnew_ie_resolved_city\tnew_ie_resolved_state\n");
             }
             while ((inputLine = br.readLine()) != null) {
                 //if (inputLine.startsWith("2557289831"))
@@ -155,6 +155,7 @@ public class CsvTest {
                 lineNo++;
             }
             System.out.println(lineNo);
+            System.out.println(nullCount);
             System.out.println(caughtByRuleNo);
             outputFile.close();
             caughtByRuleOutputFile.close();
@@ -173,9 +174,9 @@ public class CsvTest {
         */
 
         //String fileName = "C:\\Users\\Joms\\Desktop\\04-27-16-blaster\\data\\fused\\fused_052716.csv";
-        String fileName = "/Users/Yiqing/Desktop/ieImprove/originalIEoutput.txt";
+        String fileName = "/Users/Yiqing/Desktop/ieImprove/validation_ie_0825.txt";
         //String fileName = "C:\\Users\\Joms\\Desktop\\fused_with_ie_052716.csv";
-        CsvTest ct = new CsvTest(fileName, 1, 2, true, "\t", 6);
+        CsvTest ct = new CsvTest(fileName, 0, 1, true, "\t", 12);
         try{
             ct.readCsvInput();
         }catch(IOException ioe){

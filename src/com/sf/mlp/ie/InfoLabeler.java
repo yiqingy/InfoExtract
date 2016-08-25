@@ -10,6 +10,7 @@ import com.sf.mlp.ie.ds.Range;
  * Modified by Yiqing on 8/24/2016.
  * Check non-garbage string by parts to remain merchant name.
  */
+
 public class InfoLabeler {
 
     private Range preprocessName(Range nameRange, LabeledBankRecord labeledBR) {
@@ -87,8 +88,8 @@ public class InfoLabeler {
         //This condition is moved from isName to here.
         if (br==null || br.length() < 2) return null;
 
-        br = br.trim().replaceAll("[* ]", " ").replaceAll(" +", " ");
-        String[] nameToken = br.split(" ");
+        String brCleaned = br.trim().replaceAll("[* ]", " ").replaceAll(" +", " ");
+        String[] nameToken = brCleaned.split(" ");
         boolean validNameFound = false;
         int startIndex = -1;
         
@@ -96,7 +97,7 @@ public class InfoLabeler {
             if(isName(t)){
                 if (!validNameFound){
                     validNameFound = true;
-                    startIndex = br.indexOf(t);
+                    startIndex = candidateName.getStart()+br.indexOf(t);
                 }
             }
             else if(validNameFound)
@@ -341,4 +342,3 @@ public class InfoLabeler {
         */
     }
 }
-
